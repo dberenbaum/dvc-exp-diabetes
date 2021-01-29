@@ -1,10 +1,15 @@
 stages:
+  # Name for model training stage
   train:
+    # Command to execute
     cmd: python train.py
+    # Parameters to use from `params.yaml`
     params:
     - alpha
     - l1_ratio
+    # Filename for model output
     outs:
     - model.joblib
+    # Filename for model metrics
     metrics:
     - metrics.yaml
