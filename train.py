@@ -10,7 +10,7 @@ with open("params.yaml") as f:
     params = yaml.safe_load(f)
 
 # Load data.
-data_dict = load_diabetes()
+data = load_diabetes()
 X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=0)
 
 # Fit model.
@@ -19,7 +19,8 @@ regr.fit(X_train, y_train)
 
 # Evaluate model.
 metrics = {}
-metrics["r2"] = regr.score(X_test, y_test)
+r2 = regr.score(X_test, y_test)
+metrics["r2"] = r2.item()
 with open("metrics.yaml", "w") as f:
     yaml.dump(metrics, f)
 
