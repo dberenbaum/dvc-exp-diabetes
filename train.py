@@ -14,7 +14,7 @@ data = load_diabetes()
 X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=0)
 
 # Fit model.
-regr = ElasticNet(alpha=params["alpha"], l1_ratio=0.9)
+regr = ElasticNet(alpha=params["alpha"], l1_ratio=params["l1_ratio"])
 regr.fit(X_train, y_train)
 
 # Evaluate model.
