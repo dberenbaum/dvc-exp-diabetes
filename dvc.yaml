@@ -1,0 +1,10 @@
+stages:
+  train:
+    cmd: python train.py
+    params:
+    - alpha
+    - l1_ratio
+    outs:
+    - model.joblib
+    metrics:
+    - metrics.yaml

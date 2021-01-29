@@ -1,0 +1,7 @@
+dependencies:
+  - jupyter=1.0.0
+  - python=3.8.5
+  - pip
+  - scikit-learn=0.23.2
+  - pip:
+      - git+https://github.com/iterative/dvc.git
