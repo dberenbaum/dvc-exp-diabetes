@@ -1,11 +1,13 @@
 FROM jupyter/base-notebook
 
+# Enable Jupyter Lab
+ENV JUPYTER_ENABLE_LAB=yes
+
 # Install git
 USER root
 RUN apt-get update && apt-get install -yq git
 
-# Clone repo and update dependencies
-USER jovyan
-RUN git clone https://github.com/dberenbaum/dvc-exp-diabetes.git
-WORKDIR dvc-exp-diabetes
+# Update dependencies
+ADD environment.yaml /home/${NB_USER}/environment.yaml
+USER ${NB_USER}
 RUN conda env update -n base -f environment.yaml

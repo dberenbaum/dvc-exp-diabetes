@@ -13,7 +13,7 @@ docker image from the existing Dockerfile and run it:
 
 ```bash
 docker build -t dvc-exp-diabetes .
-docker run -p 8888:8888 $(docker images -q dvc-exp-diabetes)
+docker run -v $(pwd):/home/jovyan/dvc-exp-diabetes -p 8888:8888 $(docker images -q dvc-exp-diabetes)
 ```
 
 To run the notebook, navigate to the link provided in the output that starts with http://127.0.0.1:8888/.
